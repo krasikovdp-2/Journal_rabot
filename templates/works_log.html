@@ -29,7 +29,10 @@
         </tr>
       </tbody>
     </table>
-
 {% endfor %}
-
+{% if current_user.is_authenticated %}
+    <div class="row justify-content-center">
+        <a class="btn btn-primary" href="/addjob">Добавить работу</a>
+    </div>
+{% endif %}
 {% endblock %}
