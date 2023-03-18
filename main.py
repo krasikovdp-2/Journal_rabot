@@ -7,6 +7,7 @@ from data.login_form import LoginForm
 from data.job_form import JobForm
 from data.register_form import RegisterForm
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+import os
 
 
 app = Flask(__name__)
@@ -103,4 +104,5 @@ def add_job():
 
 if __name__ == '__main__':
     db_session.global_init('db/db.db')
-    app.run(port=8080, host='127.0.0.1', debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(port=port, host='0.0.0.0', debug=False)
